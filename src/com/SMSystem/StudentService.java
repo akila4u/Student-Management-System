@@ -69,7 +69,7 @@ public class StudentService {
         //check the list
         for (Student student : students){
             //if equl in id
-            if(Student.getId() == id) {
+            if(student.getId() == id) {
                 return true;
             }
         }
