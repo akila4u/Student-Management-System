@@ -15,7 +15,7 @@ public class Main {
             System.out.println("4. Delete Student By ID");
             System.out.println("5. Update Student By ID");
             System.out.println("6. Exit");
-            System.out.print("Enter your choice: ");
+
 
             Integer choice = getIntInput(scanner, "Enter your choice");
             if (choice == null || choice == 0) continue;
@@ -70,22 +70,31 @@ public class Main {
                 System.out.println("Exiting program...");
                 break;
 
-            } else {
+            }
+
+            else {
                 System.out.println("Invalid choice! Please try again.");
             }
+
+            System.out.println("\nPress Enter to return to the menu...");
+            scanner.nextLine();
         }
         scanner.close();
     } // main method
 
     //  Helper Method
     public static Integer getIntInput(Scanner scanner, String prompt) {
-        System.out.print(prompt + " (Type 0 to cancel): ");
-        try {
-            String input = scanner.nextLine();
-            return Integer.parseInt(input);
-        } catch (Exception e) {
-            System.out.println("Error: Invalid input! Please enter a number.");
-            return null;
+        while (true) {
+            System.out.print(prompt + " (Type 0 to cancel): ");
+            try {
+                String input = scanner.nextLine();
+                if (input.equals("0")) return 0; // 0  -  Cancel
+                return Integer.parseInt(input);  // if right return
+            } catch (Exception e) {
+                // if wrong
+                System.out.println("Error: Invalid input! Please enter a valid number.");
+                // loop
+            }
         }
     }
-} // Main class last
+}
