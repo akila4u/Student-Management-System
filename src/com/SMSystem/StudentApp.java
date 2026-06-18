@@ -15,7 +15,7 @@ public class StudentApp extends Application {
 
         Scene scene = new Scene(root, 400, 300);
 
-        primaryStage.setTitle("Royal Facets - Student Management");
+        primaryStage.setTitle("Student Management System");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
