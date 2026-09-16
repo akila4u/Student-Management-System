@@ -8,23 +8,19 @@ public class AuthService {
     private static String adminUsername;
     private static String adminPassword;
 
-    // Static block  config file  credentials load
     static {
         Properties prop = new Properties();
         try (FileInputStream input = new FileInputStream("config.properties")) {
             prop.load(input);
-            adminUsername = prop.getProperty("admin.username", "admin");
-            adminPassword = prop.getProperty("admin.password", "admin123");
+            adminUsername = prop.getProperty("admin.username");
+            adminPassword = prop.getProperty("admin.password");
         } catch (IOException ex) {
-            // Fallback default values જો config file එක නැත්නම්
-            adminUsername = "admin";
-            adminPassword = "admin123";
-            System.out.println("Config file not found, using default credentials.");
+            System.out.println("Config file not found!");
         }
     }
 
     public static User authenticate(String username, String password) {
-        if (adminUsername != null && adminUsername.equalsIgnoreCase(username) && adminPassword.equals(password)) {
+        if (adminUsername != null && adminUsername.equalsIgnoreCase(username) && adminPassword != null && adminPassword.equals(password)) {
             return new User(adminUsername, adminPassword, "ADMIN", null);
         }
 
