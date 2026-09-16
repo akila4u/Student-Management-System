@@ -8,7 +8,7 @@ public class AuthService {
     private static String adminUsername;
     private static String adminPassword;
 
-    // Static block එකෙන් config file එකෙන් පමණක් credentials load කරගැනීම
+    // Static block  config file  credentials load
     static {
         Properties prop = new Properties();
         try (FileInputStream input = new FileInputStream("config.properties")) {
