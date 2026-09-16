@@ -1,1 +1,4 @@
-101,akila,22,ICT
+1001,akila,12,ict,0.0,Not Specified,,
+1002,akila,23,it,3.28,software,java,AWS
+47,nelusha,57,ict,3.82,SE,Java,Oracle
+1003,kasun,22,cs,3.82,SE,java,aws
